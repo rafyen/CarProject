@@ -7,15 +7,15 @@ using namespace std;
 
 class Car {
 private:
-	int Speed_ = 0;
+	int Speed_ = 0; // be consistent in variable naming, all variables should begin with lowercase
 	string brand_;
 	string model_;
 public:
-	void setBrand(string brand) {
+	void setBrand(string brand) { // please put '{' on the new line, that style is more readable
 		brand_ = brand;
-	}
+	} // put new line before new function definition, that style is more readable
 	void setModel(string model) {
-		model_ = model;
+		model_ = model; // don't indent too much, 4 spaces or 1 tab is enough
 	}
 	string getBrand() {
 		return brand_;
@@ -34,7 +34,7 @@ public:
 		return Speed_;
 	}
 	int pushBreak() {
-		if (Speed_ > 5) {
+		if (Speed_ > 5) { // check should be >= 5, because if the speed is 5, it won't be subtracted and the car will never stop
 			Speed_ = Speed_ - 5;
 		}
 		else {
@@ -104,6 +104,19 @@ int main() {
 	{
 		displayMenu();
 		cin >> choice;
+		// you can convert the letter to upper one time and work with it afterward:
+		// char choiceUpper = toupper(choice);
+		// while (choiceUpper < 'A' || choiceUpper > 'C')
+		// {...}
+		// switch (choiceUpper)
+		// {
+		//     case 'A':
+		//     {...}
+		//     case 'B':
+		//     {...}
+	        // }
+		//
+		// This logic is simpler and easier to maintain/change in the future
 		while (toupper(choice) < 'A' || toupper(choice) > 'C')
 		{
 			cout << "Please make a choice of A or B or C:";
